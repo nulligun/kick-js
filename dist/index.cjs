@@ -47,7 +47,7 @@ var getChannelData = async (channel) => {
   let browser = null;
   let page = null;
   let count = 0;
-  while (count < 5) {
+  while (count < 15) {
     try {
       const puppeteerExtra = import_puppeteer_extra.default.use((0, import_puppeteer_extra_plugin_stealth.default)());
       browser = await puppeteerExtra.launch({
@@ -81,7 +81,7 @@ var getChannelData = async (channel) => {
       console.error("Error getting channel data:", error);
     }
     count++;
-    await new Promise((resolve) => setTimeout(resolve, 2e3));
+    await new Promise((resolve) => setTimeout(resolve, 5e3));
   }
   return null;
 };
