@@ -41,8 +41,8 @@ var import_events = __toESM(require("events"), 1);
 // src/core/kickApi.ts
 var import_puppeteer_extra = __toESM(require("puppeteer-extra"), 1);
 var import_puppeteer_extra_plugin_stealth = __toESM(require("puppeteer-extra-plugin-stealth"), 1);
-var import_dotenv = require("dotenv");
-(0, import_dotenv.config)();
+var dotenv = __toESM(require("dotenv"), 1);
+dotenv.config();
 var getChannelData = async (channel) => {
   let browser = null;
   let page = null;
@@ -56,7 +56,7 @@ var getChannelData = async (channel) => {
       });
       page = await browser.newPage();
       await page.authenticate({
-        username: import_dotenv.process.env.ZYTE_USERNAME,
+        username: process.env.ZYTE_USERNAME,
         password: ""
       });
       await page.goto(`https://kick.com/api/v2/channels/${channel}`);

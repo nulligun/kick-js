@@ -5,8 +5,8 @@ import EventEmitter from "events";
 // src/core/kickApi.ts
 import puppeteer from "puppeteer-extra";
 import StealthPlugin from "puppeteer-extra-plugin-stealth";
-import { config, process } from "dotenv";
-config();
+import * as dotenv from "dotenv";
+dotenv.config();
 var getChannelData = async (channel) => {
   let browser = null;
   let page = null;
