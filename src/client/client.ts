@@ -129,7 +129,7 @@ export const createClient = (
 
     try {
       const response = await axios.post(
-        `https://kick.com/api/v2/messages/send/${channelInfo.id}`,
+        `https://kick.com/api/v2/messages/send/${channelInfo.chatroom.id}`,
         {
           content: messageContent,
           type: "message",

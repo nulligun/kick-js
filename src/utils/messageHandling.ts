@@ -12,14 +12,8 @@ export const parseMessage = (message: string) => {
     if (messageEventJSON.event === "App\\Events\\ChatMessageEvent") {
       const data = JSON.parse(messageEventJSON.data) as ChatMessage;
       return { type: "ChatMessage", data };
-    } else if (messageEventJSON.event === "App\\Events\\SubscriptionEvent") {
-      // TODO: Add SubscriptionEvent
-      // const data = JSON.parse(messageEventJSON.data) as Subscription;
-      // return { type: "Subscription", data };
-    } else if (messageEventJSON.event === "App\\Events\\RaidEvent") {
-      // TODO: Add RaidEvent
-      // const data = JSON.parse(messageEventJSON.data) as RaidEvent;
-      // return { type: "RaidEvent", data };
+    } else {
+      return { type: messageEventJSON.event.split("\\").pop().replace("Event", ""), data: messageEventJSON.data };
     }
     // Add more event types as needed
 
