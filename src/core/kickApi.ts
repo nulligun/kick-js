@@ -2,8 +2,9 @@ import puppeteer from "puppeteer-extra";
 import StealthPlugin from "puppeteer-extra-plugin-stealth";
 import type { KickChannelInfo } from "../types/channels";
 import type { VideoInfo } from "../types/video";
-import { config, process } from "dotenv";
-config();
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 export const getChannelData = async (
   channel: string,
